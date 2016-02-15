@@ -1,0 +1,7 @@
+s4tabitay_vitrine:
+    resource: "@s4tabitayVitrineBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

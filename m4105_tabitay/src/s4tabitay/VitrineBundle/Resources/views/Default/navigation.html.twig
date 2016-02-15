@@ -1,0 +1,44 @@
+{# empty Twig template #}
+
+
+{% block navigation %}
+    <nav class="navbar info-color">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-light" href="#">MegaShop</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" class="waves-effect waves-light">Accueil <span class="sr-only">(current)</span></a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Electromenager</a></li>
+                            <li><a href="#">Informatique</a></li>
+                            <li><a href="#">Pret-a-Porter</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="#" class="waves-effect waves-light"><i class="material-icons">shopping_cart</i></a></li>
+                    </ul>
+                    <form class="navbar-form" role="search">
+                        <div class="form-group waves-effect waves-light">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+{% endblock %}

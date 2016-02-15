@@ -1,0 +1,32 @@
+{# empty Twig template #}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- MDB core CSS -->
+        <link href="http://mdbootstrap.com/mdbcdn/mdb.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('bundles/s4tabitayvitrine/css/styleApp.css') }}">
+    </head>
+    <body>
+        {# On inclut le template "navigation" #} 
+        {% include "s4tabitayVitrineBundle:Default:navigation.html.twig" %}
+        
+            {% block caroussel %}
+            {% endblock %}
+        
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+        
+        {% include "s4tabitayVitrineBundle:Default:footer.html.twig" %}
+        
+    </body>
+</html>

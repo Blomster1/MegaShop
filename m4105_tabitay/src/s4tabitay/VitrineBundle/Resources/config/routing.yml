@@ -1,0 +1,11 @@
+s4tabitay_vitrine_homepage:
+    path: /accueil/{name}
+    defaults: { _controller: s4tabitayVitrineBundle:Default:index,name: Visiteur }
+
+s4tabitay_vitrine_mentions:
+    path: /mentions
+    defaults: { _controller: s4tabitayVitrineBundle:Default:mentions }
+    
+s4tabitay_vitrine_catalogue:
+    path: /catalogue
+    defaults: { _controller: s4tabitayVitrineBundle:Default:catalogue }

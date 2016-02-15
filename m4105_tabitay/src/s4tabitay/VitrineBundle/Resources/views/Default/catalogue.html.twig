@@ -1,0 +1,43 @@
+{# empty Twig template #}
+{% extends "s4tabitayVitrineBundle:Default:layout.html.twig" %}
+
+{% block caroussel %}
+{% endblock %}
+
+{% block content %}
+    {% for article in produits %}
+    <!--Card-->
+    <div class="card card-product hoverable col-md-2 no-padding col-md-offset-2">
+
+        <!--Image-->
+        <div class="card-image waves-effect waves-block waves-light view overlay hm-white-slight">
+            <!--Discount label-->
+            <a href=""><img src="http://mdbootstrap.com/wp-content/uploads/2015/11/product-card.jpg">
+                <div class="mask"> </div>
+            </a>
+        </div>
+        <!--/.Image-->
+
+        <!--Card content: Name and price-->
+        <div class="card-content text-center">
+            <div class="row">
+                <a href=""><h5 class="product-title">{{ article.name }}</h5></a>
+            </div>
+            <div class="price">
+                <p class="green-text medium-500">{{ article.prix }}</p>
+            </div>
+        </div>
+        <!--/.Card content: Name and price-->
+
+        <!--Buttons-->
+        <div class="card-btn text-center">
+            <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Buy now</a>
+            <a href="#" class="btn btn-default btn-sm waves-effect waves-light" data-toggle="modal" data-target="#quick-look">Quick look</a>
+        </div>
+        <!--/.Buttons-->
+
+
+    </div>
+    <!--/.Card-->
+    {% endfor %}
+{% endblock %}
