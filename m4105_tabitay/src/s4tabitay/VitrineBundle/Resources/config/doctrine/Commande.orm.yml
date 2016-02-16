@@ -1,0 +1,20 @@
+## YAML Template.
+s4tabitay\VitrineBundle\Entity\Commande:       # L’espace de nom où sera créée l’entité
+    type: entity
+    table: commande                        # La table a laquelle elle correspond
+    id:                                   # Les champs qui composent la clé primaire
+       id:
+           type: integer
+           generator: { strategy: AUTO }
+    fields:                               # Les autres champs de la table
+       date:
+           type: date
+       etat:
+           type: boolean
+    manyToOne:                        # Dans l’entité Product on ajoute un champ
+        client:                     # category qui pointe vers une entité Category
+             targetEntity: Client   # category_id sera, dans la table, le nom de la clé
+             inversedBy: Commandes    # étrangère qui référence le champ id d’une
+             joinColumn:              # Category
+                 name: client_id
+                 referencedColumnName: id

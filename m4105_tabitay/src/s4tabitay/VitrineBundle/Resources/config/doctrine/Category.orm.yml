@@ -1,0 +1,15 @@
+## YAML Template.
+s4tabitay\VitrineBundle\Entity\Category:       # L’espace de nom où sera créée l’entité
+    type: entity
+    table: category                        # La table a laquelle elle correspond
+    id:                                   # Les champs qui composent la clé primaire
+       id:
+           type: integer
+           generator: { strategy: AUTO }
+    fields:                               # Les autres champs de la table
+       intitulé:
+           type: text
+    oneToMany:                        # Dans l’entité Category on ajoute un champ
+        products:                     # products qui permet d’associer à une Category
+             targetEntity: Product    # toutes les entités Products dont le champ
+             mappedBy: category       # category pointe vers cette entité.

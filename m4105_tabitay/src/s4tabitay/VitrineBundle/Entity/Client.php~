@@ -1,0 +1,83 @@
+<?php
+
+namespace s4tabitay\VitrineBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Client
+ */
+class Client
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $nom;
+
+    /**
+     * @var string
+     */
+    private $adressemail;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Client
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set adressemail
+     *
+     * @param string $adressemail
+     * @return Client
+     */
+    public function setAdressemail($adressemail)
+    {
+        $this->adressemail = $adressemail;
+
+        return $this;
+    }
+
+    /**
+     * Get adressemail
+     *
+     * @return string 
+     */
+    public function getAdressemail()
+    {
+        return $this->adressemail;
+    }
+}

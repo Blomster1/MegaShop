@@ -22,84 +22,62 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8783bfafdca67670e8bdfd8f9dcf00b26eb80c244588d7d0ebd37349bef5e69d = $this->env->getExtension("native_profiler");
-        $__internal_8783bfafdca67670e8bdfd8f9dcf00b26eb80c244588d7d0ebd37349bef5e69d->enter($__internal_8783bfafdca67670e8bdfd8f9dcf00b26eb80c244588d7d0ebd37349bef5e69d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:catalogue.html.twig"));
+        $__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba = $this->env->getExtension("native_profiler");
+        $__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba->enter($__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:catalogue.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_8783bfafdca67670e8bdfd8f9dcf00b26eb80c244588d7d0ebd37349bef5e69d->leave($__internal_8783bfafdca67670e8bdfd8f9dcf00b26eb80c244588d7d0ebd37349bef5e69d_prof);
+        $__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba->leave($__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba_prof);
 
     }
 
     // line 4
     public function block_caroussel($context, array $blocks = array())
     {
-        $__internal_6dd7836b4b6eb38dd2eeab4e44e1fd2965e3129389c173153d0cee73c7f59858 = $this->env->getExtension("native_profiler");
-        $__internal_6dd7836b4b6eb38dd2eeab4e44e1fd2965e3129389c173153d0cee73c7f59858->enter($__internal_6dd7836b4b6eb38dd2eeab4e44e1fd2965e3129389c173153d0cee73c7f59858_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "caroussel"));
+        $__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1 = $this->env->getExtension("native_profiler");
+        $__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1->enter($__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "caroussel"));
 
         
-        $__internal_6dd7836b4b6eb38dd2eeab4e44e1fd2965e3129389c173153d0cee73c7f59858->leave($__internal_6dd7836b4b6eb38dd2eeab4e44e1fd2965e3129389c173153d0cee73c7f59858_prof);
+        $__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1->leave($__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1_prof);
 
     }
 
     // line 7
     public function block_content($context, array $blocks = array())
     {
-        $__internal_bfcf506d9ca0d7c9eccd1faae4a0b80ce92193ffb4bd516ac42417e8db9283df = $this->env->getExtension("native_profiler");
-        $__internal_bfcf506d9ca0d7c9eccd1faae4a0b80ce92193ffb4bd516ac42417e8db9283df->enter($__internal_bfcf506d9ca0d7c9eccd1faae4a0b80ce92193ffb4bd516ac42417e8db9283df_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362 = $this->env->getExtension("native_profiler");
+        $__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362->enter($__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 8
-        echo "    ";
+        echo "    <div class=\"text-center\">
+    ";
+        // line 9
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["produits"]) ? $context["produits"] : $this->getContext($context, "produits")));
-        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 9
-            echo "    <!--Card-->
-    <div class=\"card card-product hoverable col-md-2 no-padding col-md-offset-2\">
-
-        <!--Image-->
-        <div class=\"card-image waves-effect waves-block waves-light view overlay hm-white-slight\">
-            <!--Discount label-->
-            <a href=\"\"><img src=\"http://mdbootstrap.com/wp-content/uploads/2015/11/product-card.jpg\">
-                <div class=\"mask\"> </div>
-            </a>
-        </div>
-        <!--/.Image-->
-
-        <!--Card content: Name and price-->
-        <div class=\"card-content text-center\">
-            <div class=\"row\">
-                <a href=\"\"><h5 class=\"product-title\">";
-            // line 24
-            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "name", array()), "html", null, true);
-            echo "</h5></a>
-            </div>
-            <div class=\"price\">
-                <p class=\"green-text medium-500\">";
-            // line 27
-            echo twig_escape_filter($this->env, $this->getAttribute($context["article"], "prix", array()), "html", null, true);
-            echo "</p>
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : $this->getContext($context, "categories")));
+        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+            // line 10
+            echo "        <div class=\"col-md-3\">
+            <div class=\"card blue-grey darken-1\">
+                <div class=\"card-content white-text\">
+                    <span class=\"card-title\">Card Title</span>
+                    <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                </div>
+                <div class=\"card-action\">
+                    <a href=\"#\">This is a link</a>
+                    <a href=\"#\">This is a link</a>
+                </div>
             </div>
         </div>
-        <!--/.Card content: Name and price-->
-
-        <!--Buttons-->
-        <div class=\"card-btn text-center\">
-            <a href=\"#\" class=\"btn btn-primary btn-sm waves-effect waves-light\">Buy now</a>
-            <a href=\"#\" class=\"btn btn-default btn-sm waves-effect waves-light\" data-toggle=\"modal\" data-target=\"#quick-look\">Quick look</a>
-        </div>
-        <!--/.Buttons-->
-
-
-    </div>
-    <!--/.Card-->
     ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 23
+        echo "    </div>
+";
         
-        $__internal_bfcf506d9ca0d7c9eccd1faae4a0b80ce92193ffb4bd516ac42417e8db9283df->leave($__internal_bfcf506d9ca0d7c9eccd1faae4a0b80ce92193ffb4bd516ac42417e8db9283df_prof);
+        $__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362->leave($__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362_prof);
 
     }
 
@@ -115,7 +93,7 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
 
     public function getDebugInfo()
     {
-        return array (  80 => 27,  74 => 24,  57 => 9,  52 => 8,  46 => 7,  35 => 4,  11 => 2,);
+        return array (  77 => 23,  59 => 10,  55 => 9,  52 => 8,  46 => 7,  35 => 4,  11 => 2,);
     }
 }
 /* {# empty Twig template #}*/
@@ -125,39 +103,20 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
 /* {% endblock %}*/
 /* */
 /* {% block content %}*/
-/*     {% for article in produits %}*/
-/*     <!--Card-->*/
-/*     <div class="card card-product hoverable col-md-2 no-padding col-md-offset-2">*/
-/* */
-/*         <!--Image-->*/
-/*         <div class="card-image waves-effect waves-block waves-light view overlay hm-white-slight">*/
-/*             <!--Discount label-->*/
-/*             <a href=""><img src="http://mdbootstrap.com/wp-content/uploads/2015/11/product-card.jpg">*/
-/*                 <div class="mask"> </div>*/
-/*             </a>*/
-/*         </div>*/
-/*         <!--/.Image-->*/
-/* */
-/*         <!--Card content: Name and price-->*/
-/*         <div class="card-content text-center">*/
-/*             <div class="row">*/
-/*                 <a href=""><h5 class="product-title">{{ article.name }}</h5></a>*/
-/*             </div>*/
-/*             <div class="price">*/
-/*                 <p class="green-text medium-500">{{ article.prix }}</p>*/
+/*     <div class="text-center">*/
+/*     {% for category in categories %}*/
+/*         <div class="col-md-3">*/
+/*             <div class="card blue-grey darken-1">*/
+/*                 <div class="card-content white-text">*/
+/*                     <span class="card-title">Card Title</span>*/
+/*                     <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>*/
+/*                 </div>*/
+/*                 <div class="card-action">*/
+/*                     <a href="#">This is a link</a>*/
+/*                     <a href="#">This is a link</a>*/
+/*                 </div>*/
 /*             </div>*/
 /*         </div>*/
-/*         <!--/.Card content: Name and price-->*/
-/* */
-/*         <!--Buttons-->*/
-/*         <div class="card-btn text-center">*/
-/*             <a href="#" class="btn btn-primary btn-sm waves-effect waves-light">Buy now</a>*/
-/*             <a href="#" class="btn btn-default btn-sm waves-effect waves-light" data-toggle="modal" data-target="#quick-look">Quick look</a>*/
-/*         </div>*/
-/*         <!--/.Buttons-->*/
-/* */
-/* */
-/*     </div>*/
-/*     <!--/.Card-->*/
 /*     {% endfor %}*/
+/*     </div>*/
 /* {% endblock %}*/
