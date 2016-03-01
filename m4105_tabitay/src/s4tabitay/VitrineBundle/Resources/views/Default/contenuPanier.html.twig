@@ -1,0 +1,23 @@
+{# empty Twig template #}
+{# empty Twig template #}
+{% extends "s4tabitayVitrineBundle:Default:layout.html.twig" %}
+
+{% block caroussel %}
+{% endblock %}
+
+{% block content %}
+    <table class="table table-striped">
+        <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix</th>
+        </tr>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.name }}</td>
+                <td>{{ session_articles[article.id] }}</td>
+                <td>{{ panier.getPrixArticle(article.id,article.price) }}€</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

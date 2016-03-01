@@ -24,4 +24,13 @@ class DefaultController extends Controller
         }
         return $this->render('s4tabitayVitrineBundle:Default:catalogue.html.twig',array('categories' => $categories));
     }
+    
+    public function articleParCategorieAction($cat){
+        $category = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Category')->findById($cat);
+        $produits = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findByCategory($cat);
+        if (!$produits) {
+            throw $this->createNotFoundException('Pas de categories trouvées');
+        }
+        return $this->render('s4tabitayVitrineBundle:Default:produitsParCategories.html.twig',array('produits' => $produits));
+    }
 }

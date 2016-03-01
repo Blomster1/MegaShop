@@ -16,8 +16,8 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e7be5b690bae2ca807772a1a4675645279f45bbb8688bdc7915660c6783874d4 = $this->env->getExtension("native_profiler");
-        $__internal_e7be5b690bae2ca807772a1a4675645279f45bbb8688bdc7915660c6783874d4->enter($__internal_e7be5b690bae2ca807772a1a4675645279f45bbb8688bdc7915660c6783874d4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:navigation.html.twig"));
+        $__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7 = $this->env->getExtension("native_profiler");
+        $__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7->enter($__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:navigation.html.twig"));
 
         // line 2
         echo "
@@ -26,14 +26,14 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
         // line 4
         $this->displayBlock('navigation', $context, $blocks);
         
-        $__internal_e7be5b690bae2ca807772a1a4675645279f45bbb8688bdc7915660c6783874d4->leave($__internal_e7be5b690bae2ca807772a1a4675645279f45bbb8688bdc7915660c6783874d4_prof);
+        $__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7->leave($__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7_prof);
 
     }
 
     public function block_navigation($context, array $blocks = array())
     {
-        $__internal_0ae4eebf38612e6fce71feb6aa6b4aea651dd24874f2f686aa7704545d885c74 = $this->env->getExtension("native_profiler");
-        $__internal_0ae4eebf38612e6fce71feb6aa6b4aea651dd24874f2f686aa7704545d885c74->enter($__internal_0ae4eebf38612e6fce71feb6aa6b4aea651dd24874f2f686aa7704545d885c74_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "navigation"));
+        $__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922 = $this->env->getExtension("native_profiler");
+        $__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922->enter($__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "navigation"));
 
         // line 5
         echo "    <nav class=\"navbar info-color\">
@@ -73,7 +73,10 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
                 </ul>
                 <div class=\"navbar-right\">
                     <ul class=\"nav navbar-nav\">
-                        <li class=\"\"><a href=\"#\" class=\"waves-effect waves-light\"><i class=\"material-icons\">shopping_cart</i></a></li>
+                        <li class=\"\"><a href=\"";
+        // line 33
+        echo $this->env->getExtension('routing')->getPath("s4tabitay_vitrine_panier");
+        echo "\" class=\"waves-effect waves-light\"><i class=\"material-icons\">shopping_cart</i></a></li>
                     </ul>
                     <form class=\"navbar-form\" role=\"search\">
                         <div class=\"form-group waves-effect waves-light\">
@@ -87,7 +90,7 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
     </nav>
 ";
         
-        $__internal_0ae4eebf38612e6fce71feb6aa6b4aea651dd24874f2f686aa7704545d885c74->leave($__internal_0ae4eebf38612e6fce71feb6aa6b4aea651dd24874f2f686aa7704545d885c74_prof);
+        $__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922->leave($__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922_prof);
 
     }
 
@@ -98,7 +101,7 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
 
     public function getDebugInfo()
     {
-        return array (  62 => 20,  58 => 19,  50 => 14,  39 => 5,  27 => 4,  23 => 2,);
+        return array (  78 => 33,  62 => 20,  58 => 19,  50 => 14,  39 => 5,  27 => 4,  23 => 2,);
     }
 }
 /* {# empty Twig template #}*/
@@ -133,7 +136,7 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
 /*                 </ul>*/
 /*                 <div class="navbar-right">*/
 /*                     <ul class="nav navbar-nav">*/
-/*                         <li class=""><a href="#" class="waves-effect waves-light"><i class="material-icons">shopping_cart</i></a></li>*/
+/*                         <li class=""><a href="{{ path('s4tabitay_vitrine_panier') }}" class="waves-effect waves-light"><i class="material-icons">shopping_cart</i></a></li>*/
 /*                     </ul>*/
 /*                     <form class="navbar-form" role="search">*/
 /*                         <div class="form-group waves-effect waves-light">*/

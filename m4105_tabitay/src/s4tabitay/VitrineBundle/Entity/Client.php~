@@ -80,4 +80,49 @@ class Client
     {
         return $this->adressemail;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $commande;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commande = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commande
+     *
+     * @param \s4tabitay\VitrineBundle\Entity\commande $commande
+     * @return Client
+     */
+    public function addCommande(\s4tabitay\VitrineBundle\Entity\commande $commande)
+    {
+        $this->commande[] = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Remove commande
+     *
+     * @param \s4tabitay\VitrineBundle\Entity\commande $commande
+     */
+    public function removeCommande(\s4tabitay\VitrineBundle\Entity\commande $commande)
+    {
+        $this->commande->removeElement($commande);
+    }
+
+    /**
+     * Get commande
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommande()
+    {
+        return $this->commande;
+    }
 }

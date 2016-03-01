@@ -22,31 +22,31 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba = $this->env->getExtension("native_profiler");
-        $__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba->enter($__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:catalogue.html.twig"));
+        $__internal_78ffbedf30d0c8658bf42c3ca935afc45dfc276d6e404484815fed3124f47b5d = $this->env->getExtension("native_profiler");
+        $__internal_78ffbedf30d0c8658bf42c3ca935afc45dfc276d6e404484815fed3124f47b5d->enter($__internal_78ffbedf30d0c8658bf42c3ca935afc45dfc276d6e404484815fed3124f47b5d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:catalogue.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba->leave($__internal_b9939164a45b452bf161e6e81fe1372764efd848ca2f5e96c8e260b4e362feba_prof);
+        $__internal_78ffbedf30d0c8658bf42c3ca935afc45dfc276d6e404484815fed3124f47b5d->leave($__internal_78ffbedf30d0c8658bf42c3ca935afc45dfc276d6e404484815fed3124f47b5d_prof);
 
     }
 
     // line 4
     public function block_caroussel($context, array $blocks = array())
     {
-        $__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1 = $this->env->getExtension("native_profiler");
-        $__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1->enter($__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "caroussel"));
+        $__internal_96ed7a5b6a644b610cacc78202d28b7ed18206436cd5fad4a23f1d39479cfe9c = $this->env->getExtension("native_profiler");
+        $__internal_96ed7a5b6a644b610cacc78202d28b7ed18206436cd5fad4a23f1d39479cfe9c->enter($__internal_96ed7a5b6a644b610cacc78202d28b7ed18206436cd5fad4a23f1d39479cfe9c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "caroussel"));
 
         
-        $__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1->leave($__internal_6ac10b0596b043ae56d8a6664238808ff4e43ff97093003b4fdc0540b2dc20c1_prof);
+        $__internal_96ed7a5b6a644b610cacc78202d28b7ed18206436cd5fad4a23f1d39479cfe9c->leave($__internal_96ed7a5b6a644b610cacc78202d28b7ed18206436cd5fad4a23f1d39479cfe9c_prof);
 
     }
 
     // line 7
     public function block_content($context, array $blocks = array())
     {
-        $__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362 = $this->env->getExtension("native_profiler");
-        $__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362->enter($__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_9270f31abf081380c7defab9e73cf5ccbec295fb79a98d146a80a95d07ce23c8 = $this->env->getExtension("native_profiler");
+        $__internal_9270f31abf081380c7defab9e73cf5ccbec295fb79a98d146a80a95d07ce23c8->enter($__internal_9270f31abf081380c7defab9e73cf5ccbec295fb79a98d146a80a95d07ce23c8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 8
         echo "    <div class=\"text-center\">
@@ -59,13 +59,19 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
             echo "        <div class=\"col-md-3\">
             <div class=\"card blue-grey darken-1\">
                 <div class=\"card-content white-text\">
-                    <span class=\"card-title\">Card Title</span>
-                    <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>
+                    <span class=\"card-title\">";
+            // line 13
+            echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "intitulé", array()), "html", null, true);
+            echo "</span>
+                    <p>";
+            // line 14
+            echo twig_escape_filter($this->env, $this->getAttribute($context["category"], "description", array()), "html", null, true);
+            echo "</p>
                 </div>
-                <div class=\"card-action\">
-                    <a href=\"#\">This is a link</a>
-                    <a href=\"#\">This is a link</a>
-                </div>
+                <a class=\"btn btn-default waves-effect waves-light\" href=\"";
+            // line 16
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("s4tabitay_vitrine_articleParCategorie", array("cat" => $this->getAttribute($context["category"], "id", array()))), "html", null, true);
+            echo "\">Visiter</a>
             </div>
         </div>
     ";
@@ -73,11 +79,11 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 23
+        // line 20
         echo "    </div>
 ";
         
-        $__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362->leave($__internal_3256559d83340e8e5cee6829cfaaaf2cfe93defb7c0bede17adc45fc63303362_prof);
+        $__internal_9270f31abf081380c7defab9e73cf5ccbec295fb79a98d146a80a95d07ce23c8->leave($__internal_9270f31abf081380c7defab9e73cf5ccbec295fb79a98d146a80a95d07ce23c8_prof);
 
     }
 
@@ -93,7 +99,7 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
 
     public function getDebugInfo()
     {
-        return array (  77 => 23,  59 => 10,  55 => 9,  52 => 8,  46 => 7,  35 => 4,  11 => 2,);
+        return array (  83 => 20,  73 => 16,  68 => 14,  64 => 13,  59 => 10,  55 => 9,  52 => 8,  46 => 7,  35 => 4,  11 => 2,);
     }
 }
 /* {# empty Twig template #}*/
@@ -108,13 +114,10 @@ class __TwigTemplate_0727eefabd880612e797014dedb0d161a19b86ab5bcfc8fbc59be24c9ef
 /*         <div class="col-md-3">*/
 /*             <div class="card blue-grey darken-1">*/
 /*                 <div class="card-content white-text">*/
-/*                     <span class="card-title">Card Title</span>*/
-/*                     <p>Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula.</p>*/
+/*                     <span class="card-title">{{ category.intitulé }}</span>*/
+/*                     <p>{{category.description}}</p>*/
 /*                 </div>*/
-/*                 <div class="card-action">*/
-/*                     <a href="#">This is a link</a>*/
-/*                     <a href="#">This is a link</a>*/
-/*                 </div>*/
+/*                 <a class="btn btn-default waves-effect waves-light" href="{{ path('s4tabitay_vitrine_articleParCategorie',{cat:category.id}) }}">Visiter</a>*/
 /*             </div>*/
 /*         </div>*/
 /*     {% endfor %}*/

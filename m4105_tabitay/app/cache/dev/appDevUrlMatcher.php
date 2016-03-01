@@ -120,6 +120,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::catalogueAction',  '_route' => 's4tabitay_vitrine_catalogue',);
         }
 
+        // s4tabitay_vitrine_articleParCategorie
+        if (0 === strpos($pathinfo, '/ArticleParCategorie') && preg_match('#^/ArticleParCategorie/(?P<cat>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_articleParCategorie')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::articleParCategorieAction',));
+        }
+
+        // s4tabitay_vitrine_panier
+        if (rtrim($pathinfo, '/') === '/contenuPanier') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_panier');
+            }
+
+            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::contenuPanierAction',  '_route' => 's4tabitay_vitrine_panier',);
+        }
+
+        // s4tabitay_vitrine_addArticle
+        if (0 === strpos($pathinfo, '/ajouterArticle') && preg_match('#^/ajouterArticle/(?P<id>[^/]++)(?:/(?P<quantity>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticle')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterUnArticleAction',  'quantity' => 1,));
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

@@ -125,4 +125,32 @@ class Category
     {
         return $this->products;
     }
+    /**
+     * @var string
+     */
+    private $intitulé;
+
+
+    /**
+     * Set intitulé
+     *
+     * @param string $intitulé
+     * @return Category
+     */
+    public function setIntitulé($intitulé)
+    {
+        $this->intitulé = $intitulé;
+
+        return $this;
+    }
+
+    /**
+     * Get intitulé
+     *
+     * @return string 
+     */
+    public function getIntitulé()
+    {
+        return $this->intitulé;
+    }
 }

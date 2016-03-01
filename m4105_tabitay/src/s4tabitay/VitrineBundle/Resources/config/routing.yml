@@ -9,3 +9,15 @@ s4tabitay_vitrine_mentions:
 s4tabitay_vitrine_catalogue:
     path: /catalogue
     defaults: { _controller: s4tabitayVitrineBundle:Default:catalogue }
+    
+s4tabitay_vitrine_articleParCategorie:
+    path: /ArticleParCategorie/{cat}
+    defaults: { _controller: s4tabitayVitrineBundle:Default:articleParCategorie }
+    
+s4tabitay_vitrine_panier:
+    path: /contenuPanier/
+    defaults: { _controller: s4tabitayVitrineBundle:Panier:contenuPanier }
+    
+s4tabitay_vitrine_addArticle:
+    path: /ajouterArticle/{id}/{quantity}
+    defaults: { _controller: s4tabitayVitrineBundle:Panier:ajouterUnArticle, quantity: 1 }

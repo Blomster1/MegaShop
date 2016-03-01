@@ -5,12 +5,12 @@ namespace s4tabitay\VitrineBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Product
+ * Produit
  */
-class Product
+class Produit
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -22,17 +22,12 @@ class Product
     /**
      * @var string
      */
-    private $price;
+    private $description;
 
     /**
      * @var string
      */
-    private $description;
-
-    /**
-     * @var \s4tabitay\VitrineBundle\Entity\Category
-     */
-    private $category;
+    private $price;
 
 
     /**
@@ -49,7 +44,7 @@ class Product
      * Set name
      *
      * @param string $name
-     * @return Product
+     * @return Produit
      */
     public function setName($name)
     {
@@ -69,33 +64,10 @@ class Product
     }
 
     /**
-     * Set price
-     *
-     * @param string $price
-     * @return Product
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return string 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
-     * @return Product
+     * @return Produit
      */
     public function setDescription($description)
     {
@@ -115,10 +87,38 @@ class Product
     }
 
     /**
+     * Set price
+     *
+     * @param string $price
+     * @return Produit
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    /**
+     * @var \s4tabitay\VitrineBundle\Entity\Category
+     */
+    private $category;
+
+
+    /**
      * Set category
      *
      * @param \s4tabitay\VitrineBundle\Entity\Category $category
-     * @return Product
+     * @return Produit
      */
     public function setCategory(\s4tabitay\VitrineBundle\Entity\Category $category = null)
     {
