@@ -19,5 +19,13 @@ s4tabitay_vitrine_panier:
     defaults: { _controller: s4tabitayVitrineBundle:Panier:contenuPanier }
     
 s4tabitay_vitrine_addArticle:
-    path: /ajouterArticle/{id}/{quantity}
+    path: /ajouterArticle/{id}/
     defaults: { _controller: s4tabitayVitrineBundle:Panier:ajouterUnArticle, quantity: 1 }
+
+s4tabitay_vitrine_addArticles:
+    path: /ajouterArticles/{id}/{quantity}
+    defaults: { _controller: s4tabitayVitrineBundle:Panier:ajouterArticles, quantity: 1 }
+
+s4tabitay_vitrine_empty:
+    path: /viderPanier/
+    defaults: { _controller: s4tabitayVitrineBundle:Panier:viderPanier}

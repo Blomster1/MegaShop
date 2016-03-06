@@ -28,7 +28,7 @@ class Panier{
     }
 
     
-    function getPrixArticle($id,$prixUnitaire){
+    function getPrixArticles($id,$prixUnitaire){
         return $this->articles["$id"]*$prixUnitaire;
     }
 
@@ -47,6 +47,10 @@ class Panier{
             $this->articles["$id"] = $quantity;
         }
         
+    }
+
+    function getQuantity($id){
+        return $this->articles["$id"];
     }
     
     function setQuantity($id,$quantity){

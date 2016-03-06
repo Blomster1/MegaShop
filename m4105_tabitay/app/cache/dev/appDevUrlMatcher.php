@@ -134,9 +134,30 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::contenuPanierAction',  '_route' => 's4tabitay_vitrine_panier',);
         }
 
-        // s4tabitay_vitrine_addArticle
-        if (0 === strpos($pathinfo, '/ajouterArticle') && preg_match('#^/ajouterArticle/(?P<id>[^/]++)(?:/(?P<quantity>[^/]++))?$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticle')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterUnArticleAction',  'quantity' => 1,));
+        if (0 === strpos($pathinfo, '/ajouterArticle')) {
+            // s4tabitay_vitrine_addArticle
+            if (preg_match('#^/ajouterArticle/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_addArticle');
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticle')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterUnArticleAction',  'quantity' => 1,));
+            }
+
+            // s4tabitay_vitrine_addArticles
+            if (0 === strpos($pathinfo, '/ajouterArticles') && preg_match('#^/ajouterArticles/(?P<id>[^/]++)(?:/(?P<quantity>[^/]++))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticles')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterArticlesAction',  'quantity' => 1,));
+            }
+
+        }
+
+        // s4tabitay_vitrine_empty
+        if (rtrim($pathinfo, '/') === '/viderPanier') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_empty');
+            }
+
+            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::viderPanierAction',  '_route' => 's4tabitay_vitrine_empty',);
         }
 
         // homepage
