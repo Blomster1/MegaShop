@@ -453,3 +453,6 @@ b11b2e,127.0.0.1,GET,http://localhost:8000/ajouterArticle/3,1456847094,,200
 789d8d,127.0.0.1,GET,http://localhost:8000/ajouterArticle/3,1456847122,,200
 378993,127.0.0.1,GET,http://localhost:8000/ajouterArticle/3,1456847140,f6844d,200
 f6844d,127.0.0.1,GET,http://localhost:8000/ajouterArticle/3,1456847140,,200
+f41deb,127.0.0.1,GET,http://localhost:8000/accueil,1457358888,,200
+07d628,127.0.0.1,GET,http://localhost:8000/catalogue,1457358890,,200
+f1a894,127.0.0.1,GET,http://localhost:8000/ArticleParCategorie/1,1457358894,,200
