@@ -28,8 +28,16 @@ class Panier{
     }
 
     
-    function getPrixArticle($id,$prixUnitaire){
+    function getPrixArticles($id,$prixUnitaire){
         return $this->articles["$id"]*$prixUnitaire;
+    }
+    
+    function getPrixTotal($articles){
+        $prixTotal=0;
+        foreach($articles as $key => $value){
+            $prixTotal =$prixTotal + $value->getPrice();
+        }
+        return $prixTotal;
     }
 
     function setArticles($articles) {
@@ -47,6 +55,10 @@ class Panier{
             $this->articles["$id"] = $quantity;
         }
         
+    }
+
+    function getQuantity($id){
+        return $this->articles["$id"];
     }
     
     function setQuantity($id,$quantity){

@@ -105,7 +105,7 @@ class Category
 
         return $this;
     }
-
+    
     /**
      * Remove products
      *
@@ -153,4 +153,13 @@ class Category
     {
         return $this->intitulé;
     }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function __toString(){ // renvoyer une chaîne qui identifie de manière unique l’entité
+        return $this->getIntitule(); // si l’attribut Intitule est unique pour chaque catégorie...
+    }
+
 }

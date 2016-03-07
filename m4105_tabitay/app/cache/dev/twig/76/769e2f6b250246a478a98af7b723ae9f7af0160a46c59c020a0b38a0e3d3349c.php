@@ -16,8 +16,8 @@ class __TwigTemplate_fc58c93e9b65f47dee7cd79eb440412c6c9b1da559d6cc0cf57f7ed612d
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_897dfee8b7ddb67c0bacd6d82287db722443dc450abfc6744d2d6db1d40dd34c = $this->env->getExtension("native_profiler");
-        $__internal_897dfee8b7ddb67c0bacd6d82287db722443dc450abfc6744d2d6db1d40dd34c->enter($__internal_897dfee8b7ddb67c0bacd6d82287db722443dc450abfc6744d2d6db1d40dd34c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:footer.html.twig"));
+        $__internal_be293fae0d3458afcd0fce9f40d1f43d4c45e63bd607cc30828da22bf5b7689f = $this->env->getExtension("native_profiler");
+        $__internal_be293fae0d3458afcd0fce9f40d1f43d4c45e63bd607cc30828da22bf5b7689f->enter($__internal_be293fae0d3458afcd0fce9f40d1f43d4c45e63bd607cc30828da22bf5b7689f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:footer.html.twig"));
 
         // line 2
         echo "
@@ -25,14 +25,14 @@ class __TwigTemplate_fc58c93e9b65f47dee7cd79eb440412c6c9b1da559d6cc0cf57f7ed612d
         // line 3
         $this->displayBlock('footer', $context, $blocks);
         
-        $__internal_897dfee8b7ddb67c0bacd6d82287db722443dc450abfc6744d2d6db1d40dd34c->leave($__internal_897dfee8b7ddb67c0bacd6d82287db722443dc450abfc6744d2d6db1d40dd34c_prof);
+        $__internal_be293fae0d3458afcd0fce9f40d1f43d4c45e63bd607cc30828da22bf5b7689f->leave($__internal_be293fae0d3458afcd0fce9f40d1f43d4c45e63bd607cc30828da22bf5b7689f_prof);
 
     }
 
     public function block_footer($context, array $blocks = array())
     {
-        $__internal_5114aa0b1f65d11bb251e58e3df451548ee99830058f48201fb6107d774f987b = $this->env->getExtension("native_profiler");
-        $__internal_5114aa0b1f65d11bb251e58e3df451548ee99830058f48201fb6107d774f987b->enter($__internal_5114aa0b1f65d11bb251e58e3df451548ee99830058f48201fb6107d774f987b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
+        $__internal_09b7c7134c454e406a8913fb18928a834729cfd54bfebf987a99165e05b8ea65 = $this->env->getExtension("native_profiler");
+        $__internal_09b7c7134c454e406a8913fb18928a834729cfd54bfebf987a99165e05b8ea65->enter($__internal_09b7c7134c454e406a8913fb18928a834729cfd54bfebf987a99165e05b8ea65_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "footer"));
 
         // line 4
         echo "    <footer class=\"page-footer elegant-color center-on-small-only\">
@@ -106,7 +106,7 @@ class __TwigTemplate_fc58c93e9b65f47dee7cd79eb440412c6c9b1da559d6cc0cf57f7ed612d
     <script type=\"text/javascript\" src=\"http://mdbootstrap.com/mdbcdn/mdb.min.js\"></script>
 ";
         
-        $__internal_5114aa0b1f65d11bb251e58e3df451548ee99830058f48201fb6107d774f987b->leave($__internal_5114aa0b1f65d11bb251e58e3df451548ee99830058f48201fb6107d774f987b_prof);
+        $__internal_09b7c7134c454e406a8913fb18928a834729cfd54bfebf987a99165e05b8ea65->leave($__internal_09b7c7134c454e406a8913fb18928a834729cfd54bfebf987a99165e05b8ea65_prof);
 
     }
 

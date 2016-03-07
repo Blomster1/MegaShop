@@ -30,9 +30,9 @@ class Product
     private $description;
 
     /**
-     * @var string
+     * @var \s4tabitay\VitrineBundle\Entity\Category
      */
-    private $manyToOne;
+    private $category;
 
 
     /**
@@ -113,34 +113,6 @@ class Product
     {
         return $this->description;
     }
-
-    /**
-     * Set manyToOne
-     *
-     * @param string $manyToOne
-     * @return Product
-     */
-    public function setManyToOne($manyToOne)
-    {
-        $this->manyToOne = $manyToOne;
-
-        return $this;
-    }
-
-    /**
-     * Get manyToOne
-     *
-     * @return string 
-     */
-    public function getManyToOne()
-    {
-        return $this->manyToOne;
-    }
-    /**
-     * @var \s4tabitay\VitrineBundle\Entity\Category
-     */
-    private $category;
-
 
     /**
      * Set category

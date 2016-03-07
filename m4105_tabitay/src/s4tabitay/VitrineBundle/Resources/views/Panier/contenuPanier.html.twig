@@ -12,12 +12,17 @@
             <th>Quantité</th>
             <th>Prix</th>
         </tr>
+        
+        {% if articles|length>0 %}
         {% for article in articles %}
             <tr>
                 <td>{{ article.name }}</td>
-                <td>{{ session_articles[article.id] }}</td>
-                <td>{{ panier.getPrixArticle(article.id,article.price) }}€</td>
+                <td>{{ panier.getQuantity(article.id) }}</td>
+                <td>{{  panier.getPrixArticles(article.id,article.price) }}€</td>
             </tr>
         {% endfor %}
+        {{ render(controller('s4tabitayVitrineBundle:Panier:infoPanier')) }}
+        {% endif %}
+        
     </table>
 {% endblock %}

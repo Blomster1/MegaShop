@@ -16,8 +16,8 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7 = $this->env->getExtension("native_profiler");
-        $__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7->enter($__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:navigation.html.twig"));
+        $__internal_6a3c127fcbb471351667f043bc1d9e81716967169c482ddf2fe69ec88c7e397f = $this->env->getExtension("native_profiler");
+        $__internal_6a3c127fcbb471351667f043bc1d9e81716967169c482ddf2fe69ec88c7e397f->enter($__internal_6a3c127fcbb471351667f043bc1d9e81716967169c482ddf2fe69ec88c7e397f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:navigation.html.twig"));
 
         // line 2
         echo "
@@ -26,14 +26,14 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
         // line 4
         $this->displayBlock('navigation', $context, $blocks);
         
-        $__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7->leave($__internal_87b234f9c8957bc49cb91a093e93768cbb959d5ac90cca4453cc5d674ca9b7e7_prof);
+        $__internal_6a3c127fcbb471351667f043bc1d9e81716967169c482ddf2fe69ec88c7e397f->leave($__internal_6a3c127fcbb471351667f043bc1d9e81716967169c482ddf2fe69ec88c7e397f_prof);
 
     }
 
     public function block_navigation($context, array $blocks = array())
     {
-        $__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922 = $this->env->getExtension("native_profiler");
-        $__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922->enter($__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "navigation"));
+        $__internal_568091bf42b1e62cce531c9f71837072b7701f5cce047c35c7f9a4229c60b629 = $this->env->getExtension("native_profiler");
+        $__internal_568091bf42b1e62cce531c9f71837072b7701f5cce047c35c7f9a4229c60b629->enter($__internal_568091bf42b1e62cce531c9f71837072b7701f5cce047c35c7f9a4229c60b629_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "navigation"));
 
         // line 5
         echo "    <nav class=\"navbar info-color\">
@@ -90,7 +90,7 @@ class __TwigTemplate_3c712065ba3a003db2baa24198984f644389262b20febe07edd13b78c87
     </nav>
 ";
         
-        $__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922->leave($__internal_fa31b44d0a3b007f0ba4781bf4f2720b73fe84ee6d7b32cde24901596f5e9922_prof);
+        $__internal_568091bf42b1e62cce531c9f71837072b7701f5cce047c35c7f9a4229c60b629->leave($__internal_568091bf42b1e62cce531c9f71837072b7701f5cce047c35c7f9a4229c60b629_prof);
 
     }
 

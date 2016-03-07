@@ -9,8 +9,7 @@
 namespace s4tabitay\VitrineBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use s4tabitay\VitrineBundle\Entity\Panier;
-use s4tabitay\VitrineBundle\Entity\Product;
-
+use Symfony\Component\BrowserKit\Request;
 
 
 /**
@@ -23,16 +22,40 @@ class PanierController extends Controller{
     
     public function contenuPanierAction()
     {
+        $articles = array();
         $session = $this->getRequest()->getSession();
-        $articles = $session->get('panier')->getArticles();
-        foreach ($articles as $key => $value){
-            $produits = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findById($key);
-            var_dump($produits);
+        if($session->get('panier') != null){
+            $panierArticles = $session->get('panier')->getArticles();
+            foreach($panierArticles as $key => $value){
+                $articles[] = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($key);
+            }
         }
-        return $this->render('s4tabitayVitrineBundle:Default:contenuPanier.html.twig',array('articles' => $produits,'session_articles' => $articles,'panier' => $session->get('panier')));
+        return $this->render('s4tabitayVitrineBundle:Panier:contenuPanier.html.twig',array('articles' => $articles, 'panier' => $session->get('panier')));
+
     }
     
-    public function ajouterUnArticleAction($id,$quantity)
+    public function infoPanierAction(){
+        $prixPanier=0;
+        $nbArticle=0;
+        $session = $this->getRequest()->getSession();
+        if($session->get('panier') != null){
+            $panierArticles = $session->get('panier')->getArticles();
+            $nbArticle = sizeof($panierArticles);
+            foreach($panierArticles as $key => $value){
+                $articles[] = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($key);
+            }
+            $prixPanier = $session->get('panier')->getPrixTotal($articles);
+        }
+        return $this->render('s4tabitayVitrineBundle:Panier:infoPanier.html.twig',array('nbArticles' => $nbArticle, 'prix' => $prixPanier));
+    }
+
+    /**
+     * @param $id
+     * @param $quantity
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function ajouterArticlesAction($id, $quantity)
     {
         $session = $this->getRequest()->getSession();
         if($session->get('panier') != NULL){
@@ -41,7 +64,28 @@ class PanierController extends Controller{
             $session->set('panier', new Panier());
             $session->get('panier')->ajouterArticle($id,$quantity);
         }
-        return $this->forward('s4tabitayVitrineBundle:Panier:contenuPanier');
+        return $this->redirectToRoute('s4tabitay_vitrine_panier');
+    }
+
+    public function ajouterUnArticleAction($id, $quantity)
+    {
+        $session = $this->getRequest()->getSession();
+        if($session->get('panier') != NULL){
+            $session->get('panier')->ajouterArticle($id,$quantity);
+        } else {
+            $session->set('panier', new Panier());
+            $session->get('panier')->ajouterArticle($id,$quantity);
+        }
+        return $this->redirectToRoute('s4tabitay_vitrine_panier');
+    }
+
+    public function viderPanierAction(){
+        $this->getRequest()->getSession()->remove('panier');
+        return $this->redirectToRoute('s4tabitay_vitrine_panier');
     }
     
+    
+    public function validationPanierAction(){
+        
+    }
 }

@@ -125,4 +125,12 @@ class Client
     {
         return $this->commande;
     }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function __toString(){ // renvoyer une chaîne qui identifie de manière unique l’entité
+        return $this->getId(); // si l’attribut Intitule est unique pour chaque catégorie...
+    }
 }
