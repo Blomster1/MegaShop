@@ -1,45 +1,29 @@
 {# empty Twig template #}
-
-
 {% block navigation %}
-    <nav class="navbar info-color">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand waves-effect waves-light" href="{{ path('s4tabitay_vitrine_homepage') }}">MegaShop</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{{ path('s4tabitay_vitrine_homepage') }}" class="waves-effect waves-light">Accueil <span class="sr-only">(current)</span></a></li>
-                    <li class=""><a href="{{ path('s4tabitay_vitrine_catalogue') }}" class="waves-effect waves-light">Catalogue <span class="sr-only">(current)</span></a></li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Electromenager</a></li>
-                            <li><a href="#">Informatique</a></li>
-                            <li><a href="#">Pret-a-Porter</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li class=""><a href="{{ path('s4tabitay_vitrine_panier') }}" class="waves-effect waves-light"><i class="material-icons">shopping_cart</i></a></li>
-                    </ul>
-                    <form class="navbar-form" role="search">
-                        <div class="form-group waves-effect waves-light">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                    </form>
-                </div>
-
-            </div>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{{ path('s4tabitay_vitrine_panier') }}">Panier</a></li>
+        <li class="divider"></li>
+        {% if not user %}
+            <li><a href="{{ path('client_authentification') }}">Connexion</a></li>
+        {% else %}
+            <li><a href="{{ path('client_profil',{id:user.id}) }}">Mon profil</a></li>
+            <li><a href="{{ path('client_logout') }}">Deconnexion</a></li>
+        {% endif %}
+    </ul>
+    <nav class="light-blue accent-3">
+        <div class="nav-wrapper">
+            <a href="{{ path('s4tabitay_vitrine_homepage') }}" class="brand-logo">Smplify</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ path('s4tabitay_vitrine_catalogue') }}">Catalogue</a></li>
+                <!-- Dropdown Trigger -->
+                {% if not user %}
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% else %}
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ user.prenom }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% endif %}
+            </ul>
         </div>
     </nav>
+
 {% endblock %}

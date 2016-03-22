@@ -9,6 +9,9 @@
 namespace s4tabitay\VitrineBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use s4tabitay\VitrineBundle\Entity\Panier;
+use s4tabitay\VitrineBundle\Entity\Commande;
+use s4tabitay\VitrineBundle\Entity\Client;
+use s4tabitay\VitrineBundle\Entity\LignedeCommande;
 use Symfony\Component\BrowserKit\Request;
 
 
@@ -30,7 +33,7 @@ class PanierController extends Controller{
                 $articles[] = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($key);
             }
         }
-        return $this->render('s4tabitayVitrineBundle:Panier:contenuPanier.html.twig',array('articles' => $articles, 'panier' => $session->get('panier')));
+        return $this->render('s4tabitayVitrineBundle:Panier:contenuPanier.html.twig',array('articles' => $articles, 'panier' => $session->get('panier'),'user' => $this->getUserConnected()));
 
     }
     
@@ -46,7 +49,7 @@ class PanierController extends Controller{
             }
             $prixPanier = $session->get('panier')->getPrixTotal($articles);
         }
-        return $this->render('s4tabitayVitrineBundle:Panier:infoPanier.html.twig',array('nbArticles' => $nbArticle, 'prix' => $prixPanier));
+        return $this->render('s4tabitayVitrineBundle:Panier:infoPanier.html.twig',array('nbArticles' => $nbArticle, 'prix' => $prixPanier,'user' => $this->getUserConnected()));
     }
 
     /**
@@ -84,8 +87,67 @@ class PanierController extends Controller{
         return $this->redirectToRoute('s4tabitay_vitrine_panier');
     }
     
+    public function validerPanierAction(){
+        $session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+        
+        $panier = $session->get('panier');
+        
+        $articles = $panier->getArticles();
+        foreach ($articles as $id => $qte){
+            $article[] = $em->getRepository('s4tabitayVitrineBundle:Product')->findOneById($id);
+        }
+        
+        if($this->getUserConnected()){
+            return $this->render('s4tabitayVitrineBundle:Panier:validation.html.twig', array('articles'=>$article,'panier'=>$panier,'user'=>$this->getUserConnected()));
+        } else {
+            return $this->redirectToRoute('client_authentification');
+        }
+        
+    }
+
     
-    public function validationPanierAction(){
+
+    public function commanderAction(){
+        $session = $this->getRequest()->getSession();
+        $em = $this->getDoctrine()->getManager();
+        
+        $user = $this->getUserConnected();
+        
+        $commande = new Commande();
+        $commande->setClient($user);
+        $commande->setEtat(false);
+        $em->persist($commande);
+        
+        $panier = $session->get('panier');
+                
+        $articles = $panier->getArticles();
+        foreach ($articles as $id => $qte){
+            $article = $em->getRepository('s4tabitayVitrineBundle:Product')->findOneById($id);
+            $prix = $article->getPrice()*$qte;
+            $lignedeCommande = new LignedeCommande();
+            $lignedeCommande->setCommande($commande);
+            $lignedeCommande->setQte($qte);
+            $lignedeCommande->setPrix($prix);
+            $lignedeCommande->setProduct($article);
+            $em->persist($lignedeCommande);
+            $em->flush();
+        }
+       
+       $session->remove('panier');
+       return  $this->redirectToRoute('s4tabitay_vitrine_homepage',array('user'=>$user->getId()));
+        
+    }
+
+    private function getUserConnected(){
+        
+        $user_id = $this->getRequest()->getSession()->get('client_id');
+        if($user_id != null){
+            $user = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Client')->findOneById($user_id);
+            return $user;
+        } else {
+            return false;
+        }
         
     }
 }

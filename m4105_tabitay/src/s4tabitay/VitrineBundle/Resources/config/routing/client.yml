@@ -1,0 +1,38 @@
+client_index:
+    path:     /
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:index" }
+    methods:  GET
+
+client_show:
+    path:     /{id}/show
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:show" }
+    methods:  GET
+
+client_new:
+    path:     /new
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:new" }
+    methods:  [GET, POST]
+    
+client_authentification:
+    path:     /authentification/
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:authentification"}
+    methods:  [GET, POST]
+    
+client_profil:
+    path:     /profil/{id}
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:profil"}
+    
+client_logout:
+    path:     /logout/
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:logout"}
+    methods:  [GET, POST]
+
+client_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:edit" }
+    methods:  [GET, POST]
+
+client_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "s4tabitayVitrineBundle:Client:delete" }
+    methods:  DELETE

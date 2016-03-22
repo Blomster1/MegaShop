@@ -1,0 +1,43 @@
+{# empty Twig template #}
+{# empty Twig template #}
+{# empty Twig template #}
+{% extends "s4tabitayVitrineBundle:Default:layout.html.twig" %}
+
+{% block caroussel %}
+{% endblock %}
+
+{% block content %}
+    <h4>Résumé de la commande</h4>
+     <table class="striped">
+        <thead>
+        <tr>
+            <th>Article<th>
+            <th>prix Unitaire<th>
+            <th>Quantité<th>
+            <th>total<th>
+        </tr>
+        </thead>
+        
+
+    {% if articles|length>0 %}
+        {% for article in articles %}
+            
+            <tr>
+                <td>{{ article.name }}<td>
+                <td>{{ article.price }}€<td>
+                <td></a>{{ panier.getQuantity(article.id) }}<td>
+                 <td>{{  panier.getPrixArticles(article.id,article.price) }}€<td>
+            </tr>
+        
+            
+        {% endfor %}
+        </table>
+    {% endif %}
+    <div class="row">
+        <div class="col m4 offset-m8">
+            <a class="btn btn-default" href="{{ path('s4tabitay_vitrine_commander') }}">Commander</a>
+            <a class="btn btn-default red lighten-2" href="{{ path('s4tabitay_vitrine_commander') }}">Annuler</a>
+        </div>
+    </div>
+    
+{% endblock %}

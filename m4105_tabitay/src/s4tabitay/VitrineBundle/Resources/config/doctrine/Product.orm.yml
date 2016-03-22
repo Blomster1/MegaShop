@@ -16,6 +16,10 @@ s4tabitay\VitrineBundle\Entity\Product:       # L’espace de nom où sera cré�
             scale: 2
         description:
             type: text
+        image:
+            type: string
+            length: 255
+            nullable: true
     manyToOne:                        # Dans l’entité Product on ajoute un champ
         category:                     # category qui pointe vers une entité Category
             targetEntity: Category   # category_id sera, dans la table, le nom de la clé

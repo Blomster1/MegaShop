@@ -9,7 +9,7 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('s4tabitayVitrineBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('s4tabitayVitrineBundle:Default:index.html.twig', array('name' => $name ,'user' => $this->getUserConnected()));      
     }
     
     public function mentionsAction()
@@ -22,7 +22,7 @@ class DefaultController extends Controller
         if (!$categories) {
             throw $this->createNotFoundException('Pas de categories trouvées');
         }
-        return $this->render('s4tabitayVitrineBundle:Default:catalogue.html.twig',array('categories' => $categories));
+        return $this->render('s4tabitayVitrineBundle:Default:catalogue.html.twig',array('categories' => $categories,'user' => $this->getUserConnected()));
     }
     
     public function articleParCategorieAction($cat){
@@ -31,6 +31,18 @@ class DefaultController extends Controller
         if (!$produits) {
             throw $this->createNotFoundException('Pas de categories trouvées');
         }
-        return $this->render('s4tabitayVitrineBundle:Default:produitsParCategories.html.twig',array('produits' => $produits));
+        return $this->render('s4tabitayVitrineBundle:Default:produitsParCategories.html.twig',array('produits' => $produits,'user' => $this->getUserConnected()));
+    }
+    
+    private function getUserConnected(){
+        
+        $user_id = $this->getRequest()->getSession()->get('client_id');
+        if($user_id != null){
+            $user = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Client')->findOneById($user_id);
+            return $user;
+        } else {
+            return false;
+        }
+        
     }
 }

@@ -6,23 +6,31 @@
 {% endblock %}
 
 {% block content %}
-    <table class="table table-striped">
+    <table class="striped">
+        <thead>
         <tr>
-            <th>Produit</th>
-            <th>Quantité</th>
-            <th>Prix</th>
+            <th>Article<th>
+            <th>prix Unitaire<th>
+            <th>Quantité<th>
+            <th>total<th>
         </tr>
+        </thead>
         
-        {% if articles|length>0 %}
+
+    {% if articles|length>0 %}
         {% for article in articles %}
             <tr>
-                <td>{{ article.name }}</td>
-                <td>{{ panier.getQuantity(article.id) }}</td>
-                <td>{{  panier.getPrixArticles(article.id,article.price) }}€</td>
+                <td>{{ article.name }}<td>
+                <td>{{ article.price }}€<td>
+                <td><a href="{{ path('s4tabitay_vitrine_addArticles',{id:article.id,quantity:panier.getQuantity(article.id)-1}) }}"><i class="material-icons">remove</i></a>{{ panier.getQuantity(article.id) }}<a href="{{ path('s4tabitay_vitrine_addArticle',{id:article.id}) }}"><i class="material-icons">add</i></a><td>
+                 <td>{{  panier.getPrixArticles(article.id,article.price) }}€<td>
             </tr>
-        {% endfor %}
-        {{ render(controller('s4tabitayVitrineBundle:Panier:infoPanier')) }}
-        {% endif %}
         
-    </table>
+            
+        {% endfor %}
+        </table>
+        {{ render(controller('s4tabitayVitrineBundle:Panier:infoPanier')) }}
+    {% endif %}
+
+
 {% endblock %}

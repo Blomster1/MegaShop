@@ -1,0 +1,27 @@
+## YAML Template.
+s4tabitay\VitrineBundle\Entity\LignedeCommande:       # L’espace de nom où sera créée l’entité
+    type: entity
+    table: LignedeCommande                        # La table a laquelle elle correspond
+    id:                                   # Les champs qui composent la clé primaire
+        commande:
+            associationKey: true
+        product:
+            associationKey: true
+            
+    fields:                               # Les autres champs de la table
+        qte:
+            type: integer
+        prix:
+            type: float
+    manyToOne:
+        product:
+            targetEntity: Product
+            joinColumn:
+                name: product_id
+                referencedColumnName: id
+        commande:                     # category qui pointe vers une entité Category
+            targetEntity: Commande   # category_id sera, dans la table, le nom de la clé
+            inversedBy: LignedeCommandes    # étrangère qui référence le champ id d’une
+            joinColumn:              # Category
+                name: commande_id
+                referencedColumnName: id

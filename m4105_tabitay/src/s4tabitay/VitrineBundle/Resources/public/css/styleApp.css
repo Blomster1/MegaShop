@@ -1,3 +1,13 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 .navbar{
     margin: 0;
 }
@@ -12,4 +22,9 @@
 
 .no-padding{
     padding: 0;
+}
+
+.sidemenu{
+    width: 10%;
+    float: left;
 }

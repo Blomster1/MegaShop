@@ -1,3 +1,17 @@
+s4tabitay_vitrine_client:
+    resource: "@s4tabitayVitrineBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+    
+s4tabitay_vitrine_product:
+        resource: "@s4tabitayVitrineBundle/Resources/config/routing/product.yml"
+        prefix:   /product
+
+s4tabitay_vitrine_commande:
+        resource: "@s4tabitayVitrineBundle/Resources/config/routing/commande.yml"
+        prefix:   /commande
+
+
+
 s4tabitay_vitrine_homepage:
     path: /accueil/{name}
     defaults: { _controller: s4tabitayVitrineBundle:Default:index,name: Visiteur }
@@ -30,7 +44,11 @@ s4tabitay_vitrine_empty:
     path: /viderPanier/
     defaults: { _controller: s4tabitayVitrineBundle:Panier:viderPanier}
     
-s4tabitay_vitrine_validatioPanier:
-    path: /validationPanier/
-    defaults: { _controller: s4tabitayVitrineBundle:Panier:validationPanier}
+s4tabitay_vitrine_validerPanier:
+    path: /validerPanier/
+    defaults: { _controller: s4tabitayVitrineBundle:Panier:validerPanier}
+    
+s4tabitay_vitrine_commander:
+    path: /commander/
+    defaults: { _controller: s4tabitayVitrineBundle:Panier:commander}
 

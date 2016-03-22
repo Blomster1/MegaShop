@@ -7,21 +7,23 @@
 {% block content %}
     <div class="text-center">
     {% for produit in produits %}
-        <div class="col-md-3">
-            <div class="card hoverable darken-1">
+        
+        <div class="row">
+            <div class="card col m3">
                 <div class="card-content text-center">
                         <div class="row">
                             <a href=""><h5 class="product-title">{{ produit.name }}</h5></a>
                             <p>{{ produit.description }}</p>
                         </div>
                         <div class="price">
-                            <p class="green-text medium-500">{{ produit.price }} $</p>
+                            <p class="green-text regular-600">{{ produit.price }} $</p>
+                        </div>
+                        <div class="card-btn text-center">
+                            <a href="{{ path('s4tabitay_vitrine_addArticle',{id:produit.id}) }}" class="btn btn-primary btn-sm waves-effect waves-light">Acheter</a>
+                            <a href="#" class="btn btn-default btn-sm waves-effect waves-light" data-toggle="modal" data-target="#quick-look">Voir</a>
                         </div>
                     </div>
-                 <div class="card-btn text-center">
-                        <a href="{{ path('s4tabitay_vitrine_addArticle',{id:produit.id}) }}" class="btn btn-primary btn-sm waves-effect waves-light">Acheter</a>
-                        <a href="#" class="btn btn-default btn-sm waves-effect waves-light" data-toggle="modal" data-target="#quick-look">Voir</a>
-                    </div>
+                    
             </div>
         </div>
     {% endfor %}

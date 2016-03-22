@@ -159,7 +159,7 @@ class Category
      * @return type
      */
     public function __toString(){ // renvoyer une chaîne qui identifie de manière unique l’entité
-        return $this->getIntitule(); // si l’attribut Intitule est unique pour chaque catégorie...
+        return $this->getIntitulé(); // si l’attribut Intitule est unique pour chaque catégorie...
     }
 
 }

@@ -16,20 +16,20 @@ class __TwigTemplate_c8036560d5d83e801731474245343a5f81e92ab6fa349bcaa33eb59f0a8
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_7c1337ea628deabd384b8362bd22e73005ffce4a369536daab60ecf5ef34e4d4 = $this->env->getExtension("native_profiler");
-        $__internal_7c1337ea628deabd384b8362bd22e73005ffce4a369536daab60ecf5ef34e4d4->enter($__internal_7c1337ea628deabd384b8362bd22e73005ffce4a369536daab60ecf5ef34e4d4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:caroussel.html.twig"));
+        $__internal_e60d1f222156a99440c5f8efa2ea5372445f06245f1b13266d68d8efc95c65ce = $this->env->getExtension("native_profiler");
+        $__internal_e60d1f222156a99440c5f8efa2ea5372445f06245f1b13266d68d8efc95c65ce->enter($__internal_e60d1f222156a99440c5f8efa2ea5372445f06245f1b13266d68d8efc95c65ce_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "s4tabitayVitrineBundle:Default:caroussel.html.twig"));
 
         // line 2
         $this->displayBlock('caroussel', $context, $blocks);
         
-        $__internal_7c1337ea628deabd384b8362bd22e73005ffce4a369536daab60ecf5ef34e4d4->leave($__internal_7c1337ea628deabd384b8362bd22e73005ffce4a369536daab60ecf5ef34e4d4_prof);
+        $__internal_e60d1f222156a99440c5f8efa2ea5372445f06245f1b13266d68d8efc95c65ce->leave($__internal_e60d1f222156a99440c5f8efa2ea5372445f06245f1b13266d68d8efc95c65ce_prof);
 
     }
 
     public function block_caroussel($context, array $blocks = array())
     {
-        $__internal_f526246c28e4ac31dfa39cb965642cec5ad264505b4b91b7c13ae75e12afd647 = $this->env->getExtension("native_profiler");
-        $__internal_f526246c28e4ac31dfa39cb965642cec5ad264505b4b91b7c13ae75e12afd647->enter($__internal_f526246c28e4ac31dfa39cb965642cec5ad264505b4b91b7c13ae75e12afd647_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "caroussel"));
+        $__internal_97aa83ed9f358484b36f3d6b61d3c3086bee564687ea3a7b4531388aa7967c69 = $this->env->getExtension("native_profiler");
+        $__internal_97aa83ed9f358484b36f3d6b61d3c3086bee564687ea3a7b4531388aa7967c69->enter($__internal_97aa83ed9f358484b36f3d6b61d3c3086bee564687ea3a7b4531388aa7967c69_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "caroussel"));
 
         // line 3
         echo "    <!-- Carousel -->
@@ -85,7 +85,7 @@ class __TwigTemplate_c8036560d5d83e801731474245343a5f81e92ab6fa349bcaa33eb59f0a8
         </div>
 ";
         
-        $__internal_f526246c28e4ac31dfa39cb965642cec5ad264505b4b91b7c13ae75e12afd647->leave($__internal_f526246c28e4ac31dfa39cb965642cec5ad264505b4b91b7c13ae75e12afd647_prof);
+        $__internal_97aa83ed9f358484b36f3d6b61d3c3086bee564687ea3a7b4531388aa7967c69->leave($__internal_97aa83ed9f358484b36f3d6b61d3c3086bee564687ea3a7b4531388aa7967c69_prof);
 
     }
 

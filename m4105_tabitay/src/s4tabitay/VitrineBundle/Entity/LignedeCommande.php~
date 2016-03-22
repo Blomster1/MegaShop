@@ -1,0 +1,195 @@
+<?php
+
+namespace s4tabitay\VitrineBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LignedeCommande
+ */
+class LignedeCommande
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     */
+    private $date;
+
+    /**
+     * @var boolean
+     */
+    private $etat;
+
+    /**
+     * @var \s4tabitay\VitrineBundle\Entity\Product
+     */
+    private $product;
+
+    /**
+     * @var \s4tabitay\VitrineBundle\Entity\Commande
+     */
+    private $commande;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return LignedeCommande
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set etat
+     *
+     * @param boolean $etat
+     * @return LignedeCommande
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return boolean 
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \s4tabitay\VitrineBundle\Entity\Product $product
+     * @return LignedeCommande
+     */
+    public function setProduct(\s4tabitay\VitrineBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \s4tabitay\VitrineBundle\Entity\Product 
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * Set commande
+     *
+     * @param \s4tabitay\VitrineBundle\Entity\Commande $commande
+     * @return LignedeCommande
+     */
+    public function setCommande(\s4tabitay\VitrineBundle\Entity\Commande $commande = null)
+    {
+        $this->commande = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Get commande
+     *
+     * @return \s4tabitay\VitrineBundle\Entity\Commande 
+     */
+    public function getCommande()
+    {
+        return $this->commande;
+    }
+    /**
+     * @var integer
+     */
+    private $qte;
+
+    /**
+     * @var float
+     */
+    private $prix;
+
+
+    /**
+     * Set qte
+     *
+     * @param integer $qte
+     * @return LignedeCommande
+     */
+    public function setQte($qte)
+    {
+        $this->qte = $qte;
+
+        return $this;
+    }
+
+    /**
+     * Get qte
+     *
+     * @return integer 
+     */
+    public function getQte()
+    {
+        return $this->qte;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param float $prix
+     * @return LignedeCommande
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return float 
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+}

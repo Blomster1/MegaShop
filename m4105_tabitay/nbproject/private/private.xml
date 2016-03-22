@@ -4,9 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Default/index.html.twig</file>
-            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Default/caroussel.html.twig</file>
+            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/config/routing.yml</file>
+            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Controller/PanierController.php</file>
+            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Default/sideMenu.html.twig</file>
+            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Default/navigation.html.twig</file>
+            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Panier/contenuPanier.html.twig</file>
+            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Controller/ClientController.php</file>
             <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Controller/DefaultController.php</file>
             <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Default/layout.html.twig</file>
+            <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Default/produitsParCategories.html.twig</file>
             <file>file:/users/info/etu-s4/tabitay/M4105C/m4105_tabitay/src/s4tabitay/VitrineBundle/Resources/views/Default/catalogue.html.twig</file>
         </group>
     </open-files>

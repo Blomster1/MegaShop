@@ -54,7 +54,6 @@ class Panier{
         } else {
             $this->articles["$id"] = $quantity;
         }
-        
     }
 
     function getQuantity($id){

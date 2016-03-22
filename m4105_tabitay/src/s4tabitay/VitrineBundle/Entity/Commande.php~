@@ -29,8 +29,11 @@ class Commande
      */
     private $etat;
 
+    function __construct() {
+        $this->setDate(new \DateTime());
+    }
 
-    /**
+        /**
      * Get id
      *
      * @return integer 
