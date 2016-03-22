@@ -1,0 +1,31 @@
+{# empty Twig template #}
+{% block navigation %}
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{{ path('s4tabitay_vitrine_panier') }}">Panier</a></li>
+        <li class="divider"></li>
+        {% if not user %}
+            <li><a href="{{ path('client_authentification') }}">Connexion</a></li>
+        {% else %}
+            <li><a href="{{ path('client_profil',{id:user.id}) }}">Mon profil</a></li>
+            <li><a href="{{ path('client_logout') }}">Deconnexion</a></li>
+        {% endif %}
+    </ul>
+    <nav class="light-blue accent-3">
+        <div class="nav-wrapper">
+            <div class="container">
+            <a href="{{ path('s4tabitay_vitrine_homepage') }}" class="brand-logo">Smplify</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ path('s4tabitay_vitrine_catalogue') }}">Catalogue</a></li>
+                <!-- Dropdown Trigger -->
+                {% if not user %}
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% else %}
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ user.prenom }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% endif %}
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+{% endblock %}

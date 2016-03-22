@@ -113,7 +113,7 @@ class Commande
     }
     
     /**
-     * 
+     *
      * @return type
      */
     public function __toString(){ // renvoyer une chaîne qui identifie de manière unique l’entité

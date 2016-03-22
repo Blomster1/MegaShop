@@ -31,14 +31,6 @@ class Panier{
     function getPrixArticles($id,$prixUnitaire){
         return $this->articles["$id"]*$prixUnitaire;
     }
-    
-    function getPrixTotal($articles){
-        $prixTotal=0;
-        foreach($articles as $key => $value){
-            $prixTotal =$prixTotal + $value->getPrice();
-        }
-        return $prixTotal;
-    }
 
     function setArticles($articles) {
         $this->articles = $articles;

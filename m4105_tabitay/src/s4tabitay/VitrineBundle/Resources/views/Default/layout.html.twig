@@ -17,13 +17,13 @@
     <body>
         <header>
         {# On inclut le template "navigation" #} 
-        {% include "s4tabitayVitrineBundle:Default:navigation.html.twig" %}
+        {% include "s4tabitayVitrineBundle:partials:navigation.html.twig" %}
         <header>
             <main>
         {% block caroussel %}
         {% endblock %}
         {% block sidemenu %}
-                {% include "s4tabitayVitrineBundle:Default:sideMenu.html.twig" %}
+                {% include "s4tabitayVitrineBundle:partials:sideMenu.html.twig" %}
             {% endblock %}
         <div class="container">
             
@@ -32,7 +32,7 @@
         </div>
         <main>
 
-        {% include "s4tabitayVitrineBundle:Default:footer.html.twig" %}
+        {% include "s4tabitayVitrineBundle:partials:footer.html.twig" %}
         <!-- Compiled and minified JavaScript -->
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

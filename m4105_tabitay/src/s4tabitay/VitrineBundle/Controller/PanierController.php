@@ -43,11 +43,10 @@ class PanierController extends Controller{
         $session = $this->getRequest()->getSession();
         if($session->get('panier') != null){
             $panierArticles = $session->get('panier')->getArticles();
-            $nbArticle = sizeof($panierArticles);
-            foreach($panierArticles as $key => $value){
-                $articles[] = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($key);
+            foreach($panierArticles as $id => $qte){
+                $article = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($id);
+                $prixPanier += $article->getPrice()*$qte;
             }
-            $prixPanier = $session->get('panier')->getPrixTotal($articles);
         }
         return $this->render('s4tabitayVitrineBundle:Panier:infoPanier.html.twig',array('nbArticles' => $nbArticle, 'prix' => $prixPanier,'user' => $this->getUserConnected()));
     }
