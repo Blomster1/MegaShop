@@ -110,7 +110,7 @@ class ProductController extends Controller
         return $this->redirectToRoute('product_index');
     }
 
-    /**
+        /**
      * Creates a form to delete a Product entity.
      *
      * @param Product $product The Product entity

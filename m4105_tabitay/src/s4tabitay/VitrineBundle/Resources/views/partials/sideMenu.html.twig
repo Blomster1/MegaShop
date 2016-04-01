@@ -1,0 +1,14 @@
+{# empty Twig template #}
+{% block sidemenu %}
+
+<div style="width: 15%; float: left; padding: 20px;">
+    <div class="collection with-header">
+        <h5 class="collection-header">Categories</h5>
+        {{ render(controller('s4tabitayVitrineBundle:Default:getCategory')) }}
+        {% if user %}
+        <h5 class="collection-header">Mon compte</h5>
+        <a href="{{ path('client_profil',{id:user.id}) }}" class="collection-item">Mes commandes</a>
+        {% endif %}
+    </div>
+</div>  
+{% endblock %}

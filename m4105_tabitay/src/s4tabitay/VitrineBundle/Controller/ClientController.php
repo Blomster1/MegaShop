@@ -57,10 +57,20 @@ class ClientController extends Controller
     
     public function profilAction($id) {
         $user = $this->getUserConnected();
+        
         if($user->getId() == $id){
             //traite la page
             $commandes = $this->getCommandesById($id);
-            return $this->render('client\profil.html.twig',array('commandes'=>$commandes,'user'=>$user));
+            $lignesDeCommandes =  array();
+            foreach ($commandes as $key => $value){
+                $prix = 0;
+                $ligneDeCommande = $this->getLigneCommandeByCommande($value->getId());
+                foreach($ligneDeCommande as $key => $val){
+                    $prix += $val->getPrix();
+                }
+                $lignesDeCommandes[$value->getId()] = $prix;             
+            }
+            return $this->render('client\profil.html.twig',array('commandes'=>$commandes,'lignesDeCommandes' => $lignesDeCommandes,'user'=>$user));
         } else {
             //Message d'erreur
             //return $this->render($route);
@@ -156,7 +166,9 @@ class ClientController extends Controller
      *
      */
     public function logoutAction(){
-        $this->getRequest()->getSession()->remove('client_id');
+        $session = $this->getRequest()->getSession();
+        $session->remove('client_id');
+        $session->remove('panier');
         return $this->redirectToRoute('s4tabitay_vitrine_homepage', array('user' => $this->getUserConnected()));
     }
     
@@ -204,6 +216,11 @@ class ClientController extends Controller
         } else {
             return false;
         }
+    }
+    
+    private function getLigneCommandeByCommande($id){
+        $em = $this->getDoctrine()->getManager();
+        return $em->getRepository('s4tabitayVitrineBundle:LignedeCommande')->findByCommande($id);
     }
     
     private function getCommandesById($id){

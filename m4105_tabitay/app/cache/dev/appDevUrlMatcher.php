@@ -105,274 +105,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/product')) {
-            // product_index
-            if (rtrim($pathinfo, '/') === '/product') {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_product_index;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'product_index');
-                }
-
-                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::indexAction',  '_route' => 'product_index',);
-            }
-            not_product_index:
-
-            // product_show
-            if (preg_match('#^/product/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_product_show;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_show')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::showAction',));
-            }
-            not_product_show:
-
-            // product_new
-            if ($pathinfo === '/product/new') {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_product_new;
-                }
-
-                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::newAction',  '_route' => 'product_new',);
-            }
-            not_product_new:
-
-            // product_edit
-            if (preg_match('#^/product/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_product_edit;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_edit')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::editAction',));
-            }
-            not_product_edit:
-
-            // product_delete
-            if (preg_match('#^/product/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if ($this->context->getMethod() != 'DELETE') {
-                    $allow[] = 'DELETE';
-                    goto not_product_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_delete')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::deleteAction',));
-            }
-            not_product_delete:
-
-        }
-
-        if (0 === strpos($pathinfo, '/commande')) {
-            // commande_index
-            if (rtrim($pathinfo, '/') === '/commande') {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_commande_index;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'commande_index');
-                }
-
-                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::indexAction',  '_route' => 'commande_index',);
-            }
-            not_commande_index:
-
-            // commande_show
-            if (preg_match('#^/commande/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'HEAD'));
-                    goto not_commande_show;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_show')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::showAction',));
-            }
-            not_commande_show:
-
-            // commande_new
-            if ($pathinfo === '/commande/new') {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_commande_new;
-                }
-
-                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::newAction',  '_route' => 'commande_new',);
-            }
-            not_commande_new:
-
-            // commande_edit
-            if (preg_match('#^/commande/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                    goto not_commande_edit;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_edit')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::editAction',));
-            }
-            not_commande_edit:
-
-            // commande_delete
-            if (preg_match('#^/commande/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                if ($this->context->getMethod() != 'DELETE') {
-                    $allow[] = 'DELETE';
-                    goto not_commande_delete;
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_delete')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::deleteAction',));
-            }
-            not_commande_delete:
-
-        }
-
-        // s4tabitay_vitrine_homepage
-        if (0 === strpos($pathinfo, '/accueil') && preg_match('#^/accueil(?:/(?P<name>[^/]++))?$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_homepage')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::indexAction',  'name' => 'Visiteur',));
-        }
-
-        // s4tabitay_vitrine_mentions
-        if ($pathinfo === '/mentions') {
-            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::mentionsAction',  '_route' => 's4tabitay_vitrine_mentions',);
-        }
-
-        // s4tabitay_vitrine_catalogue
-        if ($pathinfo === '/catalogue') {
-            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::catalogueAction',  '_route' => 's4tabitay_vitrine_catalogue',);
-        }
-
-        // s4tabitay_vitrine_articleParCategorie
-        if (0 === strpos($pathinfo, '/ArticleParCategorie') && preg_match('#^/ArticleParCategorie/(?P<cat>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_articleParCategorie')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::articleParCategorieAction',));
-        }
-
-        // s4tabitay_vitrine_panier
-        if (rtrim($pathinfo, '/') === '/contenuPanier') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_panier');
-            }
-
-            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::contenuPanierAction',  '_route' => 's4tabitay_vitrine_panier',);
-        }
-
-        if (0 === strpos($pathinfo, '/ajouterArticle')) {
-            // s4tabitay_vitrine_addArticle
-            if (preg_match('#^/ajouterArticle/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_addArticle');
-                }
-
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticle')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterUnArticleAction',  'quantity' => 1,));
-            }
-
-            // s4tabitay_vitrine_addArticles
-            if (0 === strpos($pathinfo, '/ajouterArticles') && preg_match('#^/ajouterArticles/(?P<id>[^/]++)(?:/(?P<quantity>[^/]++))?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticles')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterArticlesAction',  'quantity' => 1,));
-            }
-
-        }
-
-        if (0 === strpos($pathinfo, '/v')) {
-            // s4tabitay_vitrine_empty
-            if (rtrim($pathinfo, '/') === '/viderPanier') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_empty');
-                }
-
-                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::viderPanierAction',  '_route' => 's4tabitay_vitrine_empty',);
-            }
-
-            // s4tabitay_vitrine_validerPanier
-            if (rtrim($pathinfo, '/') === '/validerPanier') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_validerPanier');
-                }
-
-                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::validerPanierAction',  '_route' => 's4tabitay_vitrine_validerPanier',);
-            }
-
-        }
-
-        // s4tabitay_vitrine_commander
-        if (rtrim($pathinfo, '/') === '/commander') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_commander');
-            }
-
-            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::commanderAction',  '_route' => 's4tabitay_vitrine_commander',);
-        }
-
-        // homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'homepage');
-            }
-
-            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
-        }
-
-        // category_index
-        if (rtrim($pathinfo, '/') === '') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_category_index;
-            }
-
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'category_index');
-            }
-
-            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::indexAction',  '_route' => 'category_index',);
-        }
-        not_category_index:
-
-        // category_show
-        if (preg_match('#^/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_category_show;
-            }
-
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_show')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::showAction',));
-        }
-        not_category_show:
-
-        // category_new
-        if ($pathinfo === '/new') {
-            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                goto not_category_new;
-            }
-
-            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::newAction',  '_route' => 'category_new',);
-        }
-        not_category_new:
-
-        // category_edit
-        if (preg_match('#^/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
-                goto not_category_edit;
-            }
-
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_edit')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::editAction',));
-        }
-        not_category_edit:
-
-        // category_delete
-        if (preg_match('#^/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-            if ($this->context->getMethod() != 'DELETE') {
-                $allow[] = 'DELETE';
-                goto not_category_delete;
-            }
-
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_delete')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::deleteAction',));
-        }
-        not_category_delete:
-
         if (0 === strpos($pathinfo, '/client')) {
             // client_index
             if (rtrim($pathinfo, '/') === '/client') {
@@ -468,6 +200,289 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_client_delete:
 
+        }
+
+        if (0 === strpos($pathinfo, '/product')) {
+            // product_index
+            if (rtrim($pathinfo, '/') === '/product') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_product_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'product_index');
+                }
+
+                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::indexAction',  '_route' => 'product_index',);
+            }
+            not_product_index:
+
+            // product_show
+            if (preg_match('#^/product/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_product_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_show')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::showAction',));
+            }
+            not_product_show:
+
+            // product_new
+            if ($pathinfo === '/product/new') {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_product_new;
+                }
+
+                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::newAction',  '_route' => 'product_new',);
+            }
+            not_product_new:
+
+            // product_edit
+            if (preg_match('#^/product/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_product_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_edit')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::editAction',));
+            }
+            not_product_edit:
+
+            // product_delete
+            if (preg_match('#^/product/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_product_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'product_delete')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\ProductController::deleteAction',));
+            }
+            not_product_delete:
+
+        }
+
+        if (0 === strpos($pathinfo, '/c')) {
+            if (0 === strpos($pathinfo, '/commande')) {
+                // commande_index
+                if (rtrim($pathinfo, '/') === '/commande') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_commande_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'commande_index');
+                    }
+
+                    return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::indexAction',  '_route' => 'commande_index',);
+                }
+                not_commande_index:
+
+                // commande_show
+                if (preg_match('#^/commande/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_commande_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_show')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::showAction',));
+                }
+                not_commande_show:
+
+                // commande_new
+                if ($pathinfo === '/commande/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_commande_new;
+                    }
+
+                    return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::newAction',  '_route' => 'commande_new',);
+                }
+                not_commande_new:
+
+                // commande_edit
+                if (preg_match('#^/commande/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_commande_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_edit')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::editAction',));
+                }
+                not_commande_edit:
+
+                // commande_delete
+                if (preg_match('#^/commande/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_commande_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'commande_delete')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CommandeController::deleteAction',));
+                }
+                not_commande_delete:
+
+            }
+
+            if (0 === strpos($pathinfo, '/category')) {
+                // category_index
+                if (rtrim($pathinfo, '/') === '/category') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_category_index;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'category_index');
+                    }
+
+                    return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::indexAction',  '_route' => 'category_index',);
+                }
+                not_category_index:
+
+                // category_show
+                if (preg_match('#^/category/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_category_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_show')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::showAction',));
+                }
+                not_category_show:
+
+                // category_new
+                if ($pathinfo === '/category/new') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_category_new;
+                    }
+
+                    return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::newAction',  '_route' => 'category_new',);
+                }
+                not_category_new:
+
+                // category_edit
+                if (preg_match('#^/category/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                        goto not_category_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_edit')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::editAction',));
+                }
+                not_category_edit:
+
+                // category_delete
+                if (preg_match('#^/category/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_category_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_delete')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\CategoryController::deleteAction',));
+                }
+                not_category_delete:
+
+            }
+
+        }
+
+        // s4tabitay_vitrine_homepage
+        if (0 === strpos($pathinfo, '/accueil') && preg_match('#^/accueil(?:/(?P<name>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_homepage')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::indexAction',  'name' => 'Visiteur',));
+        }
+
+        // s4tabitay_vitrine_mentions
+        if ($pathinfo === '/mentions') {
+            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::mentionsAction',  '_route' => 's4tabitay_vitrine_mentions',);
+        }
+
+        // s4tabitay_vitrine_catalogue
+        if ($pathinfo === '/catalogue') {
+            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::catalogueAction',  '_route' => 's4tabitay_vitrine_catalogue',);
+        }
+
+        // s4tabitay_vitrine_articleParCategorie
+        if (0 === strpos($pathinfo, '/ArticleParCategorie') && preg_match('#^/ArticleParCategorie/(?P<cat>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_articleParCategorie')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\DefaultController::articleParCategorieAction',));
+        }
+
+        // s4tabitay_vitrine_panier
+        if (rtrim($pathinfo, '/') === '/contenuPanier') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_panier');
+            }
+
+            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::contenuPanierAction',  '_route' => 's4tabitay_vitrine_panier',);
+        }
+
+        if (0 === strpos($pathinfo, '/ajouterArticle')) {
+            // s4tabitay_vitrine_addArticle
+            if (preg_match('#^/ajouterArticle/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_addArticle');
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticle')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterUnArticleAction',  'quantity' => 1,));
+            }
+
+            // s4tabitay_vitrine_addArticles
+            if (0 === strpos($pathinfo, '/ajouterArticles') && preg_match('#^/ajouterArticles/(?P<id>[^/]++)(?:/(?P<quantity>[^/]++))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_addArticles')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::ajouterArticlesAction',  'quantity' => 1,));
+            }
+
+        }
+
+        // s4tabitay_vitrine_removeArticle
+        if (0 === strpos($pathinfo, '/enleverArticle') && preg_match('#^/enleverArticle/(?P<id>[^/]++)/?$#s', $pathinfo, $matches)) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_removeArticle');
+            }
+
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 's4tabitay_vitrine_removeArticle')), array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::enleverArticleAction',));
+        }
+
+        if (0 === strpos($pathinfo, '/v')) {
+            // s4tabitay_vitrine_empty
+            if (rtrim($pathinfo, '/') === '/viderPanier') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_empty');
+                }
+
+                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::viderPanierAction',  '_route' => 's4tabitay_vitrine_empty',);
+            }
+
+            // s4tabitay_vitrine_validerPanier
+            if (rtrim($pathinfo, '/') === '/validerPanier') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_validerPanier');
+                }
+
+                return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::validerPanierAction',  '_route' => 's4tabitay_vitrine_validerPanier',);
+            }
+
+        }
+
+        // s4tabitay_vitrine_commander
+        if (rtrim($pathinfo, '/') === '/commander') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 's4tabitay_vitrine_commander');
+            }
+
+            return array (  '_controller' => 's4tabitay\\VitrineBundle\\Controller\\PanierController::commanderAction',  '_route' => 's4tabitay_vitrine_commander',);
+        }
+
+        // homepage
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'homepage');
+            }
+
+            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

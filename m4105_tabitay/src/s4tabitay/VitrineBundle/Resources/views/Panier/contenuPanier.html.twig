@@ -4,9 +4,16 @@
 
 {% block caroussel %}
 {% endblock %}
-
+{% block sidemenu %}
+{% endblock %}
 {% block content %}
-    <table class="striped">
+
+   
+        
+        
+
+    {% if articles|length>0 %}
+        <table class="striped">
         <thead>
         <tr>
             <th>Article<th>
@@ -15,22 +22,20 @@
             <th>total<th>
         </tr>
         </thead>
-        
-
-    {% if articles|length>0 %}
         {% for article in articles %}
             <tr>
                 <td>{{ article.name }}<td>
                 <td>{{ article.price }}€<td>
-                <td><a href="{{ path('s4tabitay_vitrine_addArticles',{id:article.id,quantity:panier.getQuantity(article.id)-1}) }}"><i class="material-icons">remove</i></a>{{ panier.getQuantity(article.id) }}<a href="{{ path('s4tabitay_vitrine_addArticle',{id:article.id}) }}"><i class="material-icons">add</i></a><td>
-                 <td>{{  panier.getPrixArticles(article.id,article.price) }}€<td>
+                <td><a href="{{ path('s4tabitay_vitrine_removeArticle',{id:article.id}) }}"><i class="material-icons">remove</i></a>{{ panier.getQuantity(article.id) }}<a href="{{ path('s4tabitay_vitrine_addArticle',{id:article.id}) }}"><i class="material-icons">add</i></a><td>
+                <td>{{  panier.getPrixArticles(article.id,article.price) }}€<td>
             </tr>
         
             
         {% endfor %}
         </table>
         {{ render(controller('s4tabitayVitrineBundle:Panier:infoPanier')) }}
+    {% else %}
+        <h2>Le panier est vide !</h2>
     {% endif %}
-
 
 {% endblock %}

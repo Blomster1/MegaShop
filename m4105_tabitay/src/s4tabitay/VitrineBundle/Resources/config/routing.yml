@@ -10,6 +10,9 @@ s4tabitay_vitrine_commande:
         resource: "@s4tabitayVitrineBundle/Resources/config/routing/commande.yml"
         prefix:   /commande
 
+s4tabitay_vitrine_category:
+        resource: "@s4tabitayVitrineBundle/Resources/config/routing/category.yml"
+        prefix:   /category
 
 
 s4tabitay_vitrine_homepage:
@@ -19,7 +22,7 @@ s4tabitay_vitrine_homepage:
 s4tabitay_vitrine_mentions:
     path: /mentions
     defaults: { _controller: s4tabitayVitrineBundle:Default:mentions }
-    
+
 s4tabitay_vitrine_catalogue:
     path: /catalogue
     defaults: { _controller: s4tabitayVitrineBundle:Default:catalogue }
@@ -39,6 +42,10 @@ s4tabitay_vitrine_addArticle:
 s4tabitay_vitrine_addArticles:
     path: /ajouterArticles/{id}/{quantity}
     defaults: { _controller: s4tabitayVitrineBundle:Panier:ajouterArticles, quantity: 1 }
+    
+s4tabitay_vitrine_removeArticle:
+    path: /enleverArticle/{id}/
+    defaults: { _controller: s4tabitayVitrineBundle:Panier:enleverArticle}
 
 s4tabitay_vitrine_empty:
     path: /viderPanier/

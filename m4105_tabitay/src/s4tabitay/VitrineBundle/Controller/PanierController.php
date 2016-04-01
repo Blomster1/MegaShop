@@ -23,6 +23,11 @@ use Symfony\Component\BrowserKit\Request;
 class PanierController extends Controller{
     //put your code here
     
+    /**
+     *
+     * Retourne le contenue du panier et supprime un article si sa quantité est 0
+     * 
+     */
     public function contenuPanierAction()
     {
         $articles = array();
@@ -30,24 +35,47 @@ class PanierController extends Controller{
         if($session->get('panier') != null){
             $panierArticles = $session->get('panier')->getArticles();
             foreach($panierArticles as $key => $value){
-                $articles[] = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($key);
+                if($value > 0){
+                    $articles[] = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($key);
+                } else {
+                     $session->get('panier')->supprimerArticle($key);
+                }
+                
             }
         }
         return $this->render('s4tabitayVitrineBundle:Panier:contenuPanier.html.twig',array('articles' => $articles, 'panier' => $session->get('panier'),'user' => $this->getUserConnected()));
 
     }
     
+    /**
+     *
+     * Retourne le nombre d'articles dans le panier pour l'icon panier du menu
+     * 
+     */
+    public function previewAction(){
+        $panierArticles = array();
+        $session = $this->getRequest()->getSession();
+        if($session->get('panier') != null){
+            $panierArticles = $session->get('panier')->getArticles();
+        }
+        return $this->render('s4tabitayVitrineBundle:Panier:preview.html.twig',array('nbarticle' => $panierArticles));
+    }
+
+    /**
+     *
+     * Retourne le prix total du panier
+     * 
+     */
     public function infoPanierAction(){
         $prixPanier=0;
         $nbArticle=0;
         $session = $this->getRequest()->getSession();
         if($session->get('panier') != null){
             $panierArticles = $session->get('panier')->getArticles();
-            $nbArticle = sizeof($panierArticles);
-            foreach($panierArticles as $key => $value){
-                $articles[] = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($key);
+            foreach($panierArticles as $id => $qte){
+                $article = $this->getDoctrine()->getManager()->getRepository('s4tabitayVitrineBundle:Product')->findOneById($id);
+                $prixPanier += $article->getPrice()*$qte;
             }
-            $prixPanier = $session->get('panier')->getPrixTotal($articles);
         }
         return $this->render('s4tabitayVitrineBundle:Panier:infoPanier.html.twig',array('nbArticles' => $nbArticle, 'prix' => $prixPanier,'user' => $this->getUserConnected()));
     }
@@ -81,12 +109,34 @@ class PanierController extends Controller{
         }
         return $this->redirectToRoute('s4tabitay_vitrine_panier');
     }
-
+    
+    /**
+     *
+     * Diminue la quantité d'un article de 1
+     * 
+     */
+    public function enleverArticleAction($id)
+    {
+        $panier = $this->getRequest()->getSession()->get('panier');
+        $panier->enleverArticle($id);
+        return $this->redirectToRoute('s4tabitay_vitrine_panier');
+    }
+    
+    /**
+     *
+     * Bah la... ça vide le panier
+     * 
+     */
     public function viderPanierAction(){
         $this->getRequest()->getSession()->remove('panier');
         return $this->redirectToRoute('s4tabitay_vitrine_panier');
     }
     
+    /**
+     *
+     * Retourne le résumé du la commande avant validation de la commande
+     * 
+     */
     public function validerPanierAction(){
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
@@ -107,7 +157,11 @@ class PanierController extends Controller{
     }
 
     
-
+    /**
+     *
+     * Ajoute les ligne de commande et la commande en base de donnée
+     * 
+     */
     public function commanderAction(){
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
@@ -138,7 +192,12 @@ class PanierController extends Controller{
        return  $this->redirectToRoute('s4tabitay_vitrine_homepage',array('user'=>$user->getId()));
         
     }
-
+    
+    /**
+     *
+     * Retourne l'utilisateur connecté
+     * 
+     */
     private function getUserConnected(){
         
         $user_id = $this->getRequest()->getSession()->get('client_id');

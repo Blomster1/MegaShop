@@ -5,10 +5,3 @@ s4tabitay_vitrine:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-
-s4tabitayVitrineBundle_category:
-    resource: "@s4tabitayVitrineBundle/Resources/config/routing/category.yml"
-    
-s4tabitay_vitrine_client:
-        resource: "@s4tabitayVitrineBundle/Resources/config/routing/client.yml"
-        prefix:   /client

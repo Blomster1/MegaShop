@@ -43,6 +43,11 @@ class DefaultController extends Controller
         } else {
             return false;
         }
-        
+    }
+
+    public function getCategoryAction(){
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('s4tabitayVitrineBundle:Category')->findAll();
+        return $this->render('s4tabitayVitrineBundle:partials:categoryMenu.html.twig', array('categories'=>$categories));
     }
 }

@@ -7,7 +7,7 @@ s4tabitay\VitrineBundle\Entity\Category:       # L’espace de nom où sera cré
             type: integer
             generator: { strategy: AUTO }
     fields:                               # Les autres champs de la table
-        intitulé:
+        intitule:
             type: text
     oneToMany:                        # Dans l’entité Category on ajoute un champ
         products:                     # products qui permet d’associer à une Category

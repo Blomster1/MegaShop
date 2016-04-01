@@ -17,69 +17,8 @@ class Category
     /**
      * @var string
      */
-    private $description;
+    private $intitule;
 
-    /**
-     * @var string
-     */
-    private $oneToMany;
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Category
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set oneToMany
-     *
-     * @param string $oneToMany
-     * @return Category
-     */
-    public function setOneToMany($oneToMany)
-    {
-        $this->oneToMany = $oneToMany;
-
-        return $this;
-    }
-
-    /**
-     * Get oneToMany
-     *
-     * @return string 
-     */
-    public function getOneToMany()
-    {
-        return $this->oneToMany;
-    }
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -94,6 +33,39 @@ class Category
     }
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set intitule
+     *
+     * @param string $intitule
+     * @return Category
+     */
+    public function setIntitule($intitule)
+    {
+        $this->intitule = $intitule;
+
+        return $this;
+    }
+
+    /**
+     * Get intitule
+     *
+     * @return string 
+     */
+    public function getIntitule()
+    {
+        return $this->intitule;
+    }
+
+    /**
      * Add products
      *
      * @param \s4tabitay\VitrineBundle\Entity\Product $products
@@ -105,7 +77,7 @@ class Category
 
         return $this;
     }
-    
+
     /**
      * Remove products
      *
@@ -125,41 +97,8 @@ class Category
     {
         return $this->products;
     }
-    /**
-     * @var string
-     */
-    private $intitulé;
-
-
-    /**
-     * Set intitulé
-     *
-     * @param string $intitulé
-     * @return Category
-     */
-    public function setIntitulé($intitulé)
-    {
-        $this->intitulé = $intitulé;
-
-        return $this;
-    }
-
-    /**
-     * Get intitulé
-     *
-     * @return string 
-     */
-    public function getIntitulé()
-    {
-        return $this->intitulé;
-    }
     
-    /**
-     * 
-     * @return type
-     */
     public function __toString(){ // renvoyer une chaîne qui identifie de manière unique l’entité
-        return $this->getIntitulé(); // si l’attribut Intitule est unique pour chaque catégorie...
+        return $this->getIntitule(); // si l’attribut Intitule est unique pour chaque catégorie...
     }
-
 }

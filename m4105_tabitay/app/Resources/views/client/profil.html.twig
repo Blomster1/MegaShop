@@ -3,11 +3,38 @@
 {% extends "s4tabitayVitrineBundle:Default:layout.html.twig" %}
 
 {% block content %}
-    <div class="row">
-        <div class="col m6">
-
-            <h1>Mon profile</h1>
-            {{ dump(commandes) }}
+    <h1>Mon profil</h1>
+    <h5>Résumé de mes commandes</h5>
+    <table class="bordered">
+        <thead>
+           <tr>
+               <th> </th>
+               <th>Date</th>
+               <th>Montant</th>
+               <th>Status</th>
+           </tr>
+        </thead>
+        {% for commande in commandes %}
+        <tr>
+            <td>n°{{ commande.id }}</td>
+            <td>{{ commande.date|date('d-m-Y') }}</td>
+            <td>{{ lignesDeCommandes[commande.id] }}€</td>
+            <td>
+                {% if commande.etat == 1 %}
+                    Terminé
+                {% else %}
+                    En cours
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h5>Mes informations</h5>
+    <div>
+        <p>Nom : {{ user.nom }}</p>
+        <p>Prénom : {{ user.prenom }}</p>
+        <p>Adresse e-mail : {{ user.adressemail }}</p>
+    </div>
             
 
         

@@ -218,6 +218,6 @@ class Client
      * @return type
      */
     public function __toString(){ // renvoyer une chaîne qui identifie de manière unique l’entité
-        return $this->getId(); // si l’attribut Id est unique pour chaque Client...
+        return $this->getNom(); // si l’attribut Id est unique pour chaque Client...
     }
 }
